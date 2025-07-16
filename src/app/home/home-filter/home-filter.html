@@ -1,0 +1,29 @@
+<form>
+  <div class="field">
+    <i class="fa-solid fa-right-from-bracket"></i>
+    <select>
+      <option value="">From</option>
+    </select>
+  </div>
+  <div class="field">
+    <i class="fa-solid fa-location-dot"></i>
+    <select>
+      <option value="">To</option>
+    </select>
+  </div>
+  <div class="field">
+    <i class="fa-solid fa-calendar-days"></i>
+    <input
+      (focus)="isDate = true"
+      [type]="isDate ? 'date' : 'text'"
+      placeholder="Pick Your Departure Date"
+    />
+  </div>
+  <div class="field">
+    <i class="fa-solid fa-users-line"></i>
+    <select>
+      <option value="">Passengers</option>
+    </select>
+  </div>
+  <button>Search Trains</button>
+</form>
