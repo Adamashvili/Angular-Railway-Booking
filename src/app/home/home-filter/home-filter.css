@@ -1,4 +1,4 @@
-form {
+.filterForm {
   max-width: 1550px;
   margin: auto;
   min-height: 150px;
@@ -14,14 +14,14 @@ form {
   position: relative;
 }
 
-form * {
+.filterForm * {
   height: 60px;
   border: none;
   border-radius: 7px;
   text-align: center;
 }
 
-form *:not(button) {
+.filterForm *:not(button) {
   background-color: #f1f2f6;
   outline: none;
   transition: 0.3s;
@@ -32,7 +32,7 @@ form *:not(button) {
   background-color: #e6e6e7;
 }
 
-form .field {
+.filterForm .field {
   position: relative;
 }
 
@@ -60,7 +60,7 @@ input {
     width: 100%;
 }
 
-form button {
+.filterForm button {
   background-color: #ed1a25;
   color: white;
   font-size: 17px;
@@ -68,7 +68,7 @@ form button {
   transition: 0.2s;
 }
 
-form button:hover {
+.filterForm button:hover {
   background-color: #f40d19;
   box-shadow: inset 0 0 10px 2px rgb(144, 3, 3);
 }

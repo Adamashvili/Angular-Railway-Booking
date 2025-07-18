@@ -1,0 +1,12 @@
+<section>
+    
+  @for (item of benefits; track $index) {
+    
+  <div class="card">
+    <div class="imgArea">
+    <img src="https://gr.com.ge/{{item.image}}" alt="" />
+    </div>
+    <p>{{ item.title_en }}</p>
+  </div>
+  }
+</section>

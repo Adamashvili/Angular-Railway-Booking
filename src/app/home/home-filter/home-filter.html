@@ -1,23 +1,25 @@
-<form>
+<div class="filterForm">
   <div class="field">
     <i class="fa-solid fa-right-from-bracket"></i>
-    <select>
+    <select required [(ngModel)]="cityFrom">
       <option value="">From</option>
+      @for (item of stations; track $index) {
+      <option [value]="item.name">{{ item.name }}</option>
+      }
     </select>
   </div>
   <div class="field">
     <i class="fa-solid fa-location-dot"></i>
-    <select>
+    <select required [(ngModel)]="cityTo">
       <option value="">To</option>
+      @for (item of stations; track $index) {
+      <option [value]="item.name">{{ item.name }}</option>
+      }
     </select>
   </div>
   <div class="field">
     <i class="fa-solid fa-calendar-days"></i>
-    <input
-      (focus)="isDate = true"
-      [type]="isDate ? 'date' : 'text'"
-      placeholder="Pick Your Departure Date"
-    />
+    <input type="date" [(ngModel)]="dateDeparture" />
   </div>
   <div class="field">
     <i class="fa-solid fa-users-line"></i>
@@ -25,5 +27,5 @@
       <option value="">Passengers</option>
     </select>
   </div>
-  <button>Search Trains</button>
-</form>
+  <button (click)="filterDepartures()">Search Trains</button>
+</div>
