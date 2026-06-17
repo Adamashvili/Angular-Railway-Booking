@@ -75,3 +75,14 @@ input {
   background-color: #f40d19;
   box-shadow: inset 0 0 10px 2px rgb(144, 3, 3);
 }
+
+
+@media (max-width: 670px) {
+  .filterForm {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .filterForm button {
+    grid-column: 1 / span 2;
+  }
+}

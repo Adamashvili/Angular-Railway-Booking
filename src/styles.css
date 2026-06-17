@@ -16,3 +16,26 @@
     max-width: 1400px;
     margin: 0 auto;
 }
+
+.headLine {
+  position: relative;
+}
+
+.headLine h2 {
+  background-color: white;
+  width: fit-content;
+  margin-left: 20px;
+  padding: 0 10px;
+}
+
+
+.headLine::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background-color: rgb(157, 145, 145);
+  left: 0;
+  top: 50%;
+  z-index: -1;
+}

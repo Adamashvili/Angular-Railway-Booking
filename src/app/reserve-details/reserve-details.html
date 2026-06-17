@@ -17,7 +17,9 @@
       </div>
     </div>
 
-    <h2>Contact Information</h2>
+    <div class="headLine">
+      <h2>Contact Information</h2>
+    </div>
     <div class="contactField">
       <input [formControl]="ownerEmail" type="email" placeholder="Email" />
       <input
@@ -27,12 +29,18 @@
       />
     </div>
 
-    <h2>Passenger Information</h2>
+    <div style="margin-bottom: 30px;" class="headLine">
+      <h2>Passenger Information</h2>
+    </div>
 
     @for (item of [].constructor(passengers); track $index) {
-      <h2>Passenger {{ $index + 1 }}</h2>
+      <div class="headLine">
+        <h2>Passenger {{ $index + 1 }}</h2>
+      </div>
       <div class="passfield">
-        <h3>Seat <span> {{invoiceSeatsInfo[$index]?.num}} </span></h3>
+        <h3>
+          Seat <span> {{ invoiceSeatsInfo[$index]?.num }} </span>
+        </h3>
         <input
           type="text"
           [formControl]="passengerFirstName"
@@ -48,7 +56,7 @@
           [formControl]="passengerID"
           placeholder="ID Number"
         />
-        <button (click)="isPopupShown = true">Select Seat</button>
+        <button (click)="isPopupShown = true">Select <br> Seat</button>
 
         @if (!peopleSeats[$index]) {
           <button (click)="addSeat()">Submit</button>
@@ -67,12 +75,14 @@
     <hr />
     @for (item of invoiceSeatsInfo; track $index) {
       <div class="field">
-        <h4>{{item.num}}</h4>
-        <h4>{{item.price}}₾</h4>
+        <h4>{{ item.num }}</h4>
+        <h4>{{ item.price }}₾</h4>
       </div>
     }
 
-    <p>Total: <span>{{invoiceTotal || 0}} ₾</span></p>
+    <p>
+      Total: <span>{{ invoiceTotal || 0 }} ₾</span>
+    </p>
 
     <button (click)="reserveTicket()">
       Register <br />
