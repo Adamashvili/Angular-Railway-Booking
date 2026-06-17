@@ -1,6 +1,7 @@
-import { ChangeDetectorRef, Component } from '@angular/core';
+import { ChangeDetectorRef, Component, signal } from '@angular/core';
 import { StepRailwayApi } from '../../services/step-railway-api';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-filter',
@@ -9,32 +10,36 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './home-filter.css',
 })
 export class HomeFilter {
-  constructor(private stepApi: StepRailwayApi,  private cdr: ChangeDetectorRef) {
-    this.getStations()
-    cdr.detach()
+  constructor(
+    private stepApi: StepRailwayApi,
+    public router: Router,
+  ) {
+    this.getStations();
   }
   public isDate: boolean = false;
-  public stations: any[] = [];
-  public cityFrom: string = "";
-  public cityTo: string = "";
-  public dateDeparture: string = "";
+  public stations = signal<any>([]);
+  public cityFrom: string = '';
+  public cityTo: string = '';
+  public dateDeparture: string = '';
+  public passengers: number = 1;
 
   getStations() {
     this.stepApi.getStations().subscribe((data: any) => {
       console.log(data);
-      this.stations = data
-      this.cdr.detectChanges()
+      this.stations.set(data);
     });
   }
 
   filterDepartures() {
-    console.log(this.cityFrom);
-    console.log(this.cityTo);
-    console.log(this.dateDeparture);
     
-  this.stepApi.getDepartures(this.cityFrom, this.cityTo, this.dateDeparture).subscribe((data:any) => {
-    console.log(data);
-    this.cdr.detectChanges()
-  })
+    sessionStorage.setItem('passenger', this.passengers.toString());
+    sessionStorage.setItem('date', this.dateDeparture);
+    this.router.navigate(['/departures'], {
+      queryParams: {
+        from: this.cityFrom,
+        to: this.cityTo,
+        date: this.dateDeparture,
+      },
+    });
   }
 }

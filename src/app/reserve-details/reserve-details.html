@@ -1,0 +1,127 @@
+<header></header>
+
+<main>
+  <section>
+    <div class="list">
+      <div class="field">
+        <span class="num">N-{{ resDetails.number }}</span>
+        <span>{{ resDetails.name }}</span>
+      </div>
+      <div class="field">
+        <span>{{ resDetails.departure }}</span>
+        <span>{{ resDetails.from }}</span>
+      </div>
+      <div class="field">
+        <span>{{ resDetails.arrive }}</span>
+        <span>{{ resDetails.to }}</span>
+      </div>
+    </div>
+
+    <h2>Contact Information</h2>
+    <div class="contactField">
+      <input [formControl]="ownerEmail" type="email" placeholder="Email" />
+      <input
+        [formControl]="ownerPhone"
+        type="text"
+        placeholder="Phone Number"
+      />
+    </div>
+
+    <h2>Passenger Information</h2>
+
+    @for (item of [].constructor(passengers); track $index) {
+      <h2>Passenger {{ $index + 1 }}</h2>
+      <div class="passfield">
+        <h3>Seat <span> {{invoiceSeatsInfo[$index]?.num}} </span></h3>
+        <input
+          type="text"
+          [formControl]="passengerFirstName"
+          placeholder="First Name"
+        />
+        <input
+          type="text"
+          [formControl]="passengerSurName"
+          placeholder="Last Name"
+        />
+        <input
+          type="text"
+          [formControl]="passengerID"
+          placeholder="ID Number"
+        />
+        <button (click)="isPopupShown = true">Select Seat</button>
+
+        @if (!peopleSeats[$index]) {
+          <button (click)="addSeat()">Submit</button>
+        } @else {
+          <button (click)="edit($index)">Edit</button>
+        }
+      </div>
+    }
+  </section>
+  <aside>
+    <h2>Invoice</h2>
+    <div class="field">
+      <h4>Seat</h4>
+      <h4>Price</h4>
+    </div>
+    <hr />
+    @for (item of invoiceSeatsInfo; track $index) {
+      <div class="field">
+        <h4>{{item.num}}</h4>
+        <h4>{{item.price}}₾</h4>
+      </div>
+    }
+
+    <p>Total: <span>{{invoiceTotal || 0}} ₾</span></p>
+
+    <button (click)="reserveTicket()">
+      Register <br />
+      Ticket
+    </button>
+  </aside>
+</main>
+
+@if (isPopupShown) {
+  <div class="vagonSection">
+    <div class="vagonCard">
+      <button (click)="isPopupShown = false">X</button>
+      <div class="images">
+        <img
+          (click)="vagon = 0"
+          [class.activeVagon]="vagon == 0"
+          src="https://railway.stepprojects.ge/images/firstWagon.png"
+          alt=""
+        />
+        <img
+          (click)="vagon = 1"
+          [class.activeVagon]="vagon == 1"
+          src="https://railway.stepprojects.ge/images/midWagon.png"
+          alt=""
+        />
+        <img
+          (click)="vagon = 2"
+          [class.activeVagon]="vagon == 2"
+          src="https://railway.stepprojects.ge/images/lastWagon.png"
+          alt=""
+        />
+      </div>
+      <h2>Please Enter Your Vagon</h2>
+      <div class="seats">
+        @if (vagon !== undefined) {
+          @for (item of resDetails.vagons[vagon].seats; track $index) {
+            <button
+              (click)="
+                invoiceSeatNum = item.number; invoiceSeatPrice = item.price
+              "
+              (click)="passengerSeatId = item.seatId"
+              [class.occupiedSeat]="occupiedSeat == item.number"
+              (click)="occupiedSeat = item.number"
+            >
+              {{ item.number }}
+            </button>
+          }
+        }
+      </div>
+    </div>
+  </div>
+}

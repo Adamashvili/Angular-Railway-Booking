@@ -55,9 +55,12 @@ select {
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
+  padding-inline: 20px;
 }
 input {
     width: 100%;
+    padding-inline: 20px;
+    
 }
 
 .filterForm button {

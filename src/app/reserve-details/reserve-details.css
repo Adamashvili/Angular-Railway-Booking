@@ -1,0 +1,257 @@
+header {
+  height: 300px;
+  background-image: url("https://4kwallpapers.com/images/wallpapers/railway-track-trees-golden-hour-dusk-curve-outdoor-5k-3840x1080-6140.jpg");
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  position: relative;
+}
+
+header::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  background-color: darkred;
+  opacity: 0.2;
+}
+
+.list {
+  min-height: 100px;
+  box-shadow: 0 0 5px rgb(230, 230, 230);
+  margin-bottom: 30px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  background-color: #f7f7f7;
+  text-shadow: 0 0 1.5px darkred;
+  cursor: default;
+}
+
+.list .field {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: space-evenly;
+  height: 100%;
+  border-right: 0.4px dashed rgb(185, 184, 184);
+  position: relative;
+}
+
+.field .num {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-color: darkred;
+  color: white;
+  width: 50px;
+  padding: 3px 0;
+  font-size: 13px;
+  border-bottom-right-radius: 5px;
+}
+
+main {
+  display: flex;
+  max-width: 1400px;
+  margin: 30px auto;
+  gap: 20px;
+}
+
+section {
+  width: 80%;
+  padding: 50px;
+  box-shadow: 0 0 15px rgb(207, 207, 207);
+  border-radius: 10px;
+}
+
+.contactField {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.contactField input {
+  width: 50%;
+  height: 50px;
+  padding-inline: 20px;
+  border: 0.4px solid grey;
+  border-radius: 3px;
+}
+
+.passfield {
+  display: grid;
+  grid-template-columns: 0.5fr 1fr 1fr 1fr 0.5fr 0.5fr;
+  min-height: 50px;
+  align-items: stretch;
+  margin: 10px 0;
+  gap: 2px;
+}
+
+.passfield h3 {
+  background-color: darkred;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  font-size: 15px;
+}
+
+.passfield input {
+  border: 0.4px solid grey;
+  padding-inline: 20px;
+  border-radius: 4px;
+  outline: none;
+}
+
+.passfield button {
+  font-weight: bold;
+  background-color: #ed1a25;
+  border: none;
+  color: white;
+  font-family: "Magra", sans-serif;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.passfield button:hover {
+  background-color: #f40d19;
+  box-shadow: inset 0 0 10px 2px rgb(144, 3, 3);
+}
+
+aside {
+  width: 20%;
+  height: fit-content;
+  box-shadow: 0 0 5px rgb(221, 220, 220);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  padding: 20px;
+  background-color: #f5f5fc;
+  gap: 15px;
+}
+
+aside .field {
+  display: flex;
+  justify-content: space-between;
+}
+
+aside p {
+  height: 35px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: 10px;
+  
+  background-color: white;
+  border: none;
+}
+
+aside button {
+  font-weight: bold;
+  background-color: #ed1a25;
+  border: none;
+  color: white;
+  font-family: "Magra", sans-serif;
+  font-size: 17px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+  height: 60px;
+}
+
+aside button:hover {
+  background-color: #f40d19;
+  box-shadow: inset 0 0 10px 2px rgb(144, 3, 3);
+}
+
+.vagonSection {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  backdrop-filter: blur(10px) brightness(20%);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vagonCard {
+  width: 450px;
+  min-height: 250px;
+  background-color: white;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  cursor: default;
+  padding: 40px 20px;
+  transition: 1s;
+}
+
+.vagonCard > button:first-child {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: none;
+  padding: 5px 17px;
+  cursor: pointer;
+  border-bottom-left-radius: 8px;
+}
+
+.vagonCard .images {
+  display: flex;
+  justify-content: center;
+}
+
+.images img {
+  width: 30%;
+  filter: grayscale(60%) brightness(80%);
+  transition: 0.3s;
+  cursor: pointer;
+}
+.images img:hover {
+  filter: grayscale(30%) brightness(90%);
+}
+
+.activeVagon {
+  filter: grayscale(0%) brightness(100%) !important;
+}
+
+.seats {
+  max-height: 400px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 7px 15px;
+}
+
+.seats button {
+  width: 45px;
+  height: 30px;
+  border: none;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: 0.3s;
+}
+
+.seats button:hover {
+  background-color: lightgreen;
+}
+
+.occupiedSeat {
+  background-color: green !important;
+  color: white;
+  box-shadow: 0 0 5px rgb(88, 169, 88);
+}

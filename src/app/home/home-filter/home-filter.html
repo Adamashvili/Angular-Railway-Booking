@@ -3,7 +3,7 @@
     <i class="fa-solid fa-right-from-bracket"></i>
     <select required [(ngModel)]="cityFrom">
       <option value="">From</option>
-      @for (item of stations; track $index) {
+      @for (item of stations(); track $index) {
       <option [value]="item.name">{{ item.name }}</option>
       }
     </select>
@@ -12,7 +12,7 @@
     <i class="fa-solid fa-location-dot"></i>
     <select required [(ngModel)]="cityTo">
       <option value="">To</option>
-      @for (item of stations; track $index) {
+      @for (item of stations(); track $index) {
       <option [value]="item.name">{{ item.name }}</option>
       }
     </select>
@@ -23,9 +23,7 @@
   </div>
   <div class="field">
     <i class="fa-solid fa-users-line"></i>
-    <select>
-      <option value="">Passengers</option>
-    </select>
+    <input type="number" [(ngModel)]="passengers">
   </div>
   <button (click)="filterDepartures()">Search Trains</button>
 </div>

@@ -1,0 +1,36 @@
+<header>
+  @if (departureInfo().source) {
+    <h1>
+      Choose Your Train from {{ departureInfo().source }} to
+      {{ departureInfo().destination }}
+    </h1>
+  }
+</header>
+
+<section>
+  <h2>Train Lists</h2>
+  <div class="listhead">
+    <h2>Train Name</h2>
+    <h2>Departure</h2>
+    <h2>Arrival</h2>
+    <h2></h2>
+  </div>
+  @for (item of departureTrains(); track $index) {
+    <div class="list">
+      <div class="field">
+        <span class="num">N-{{ item.number }}</span>
+        <span>{{ item.name }}</span>
+      </div >
+      <div class="field">
+        <span>{{ item.departure }}</span>
+        <span>{{ item.from }}</span>
+      </div>
+      <div class="field">
+        <span>{{ item.arrive }}</span>
+        <span>{{ item.to }}</span>
+      </div>
+      <button (click)="gotoReserve(item)">Reserve</button>
+    </div>
+  }
+  
+</section>

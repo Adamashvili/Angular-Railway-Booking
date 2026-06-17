@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, signal } from '@angular/core';
 import { GeoRailwayapis } from '../../services/geo-railwayapis';
 
 @Component({
@@ -7,23 +7,18 @@ import { GeoRailwayapis } from '../../services/geo-railwayapis';
   templateUrl: './railway-cards.html',
   styleUrl: './railway-cards.css',
 })
-export class RailwayCards implements OnInit {
-  constructor(
-    private geoRailwayServ: GeoRailwayapis,
-    private cdr: ChangeDetectorRef
-  ) {
+export class RailwayCards {
+  constructor(private geoRailwayServ: GeoRailwayapis) {
     this.getAllInfo();
-    this.cdr.detach();
     window.scrollTo(0, 0);
   }
-  ngOnInit(): void {}
+  
 
-  public benefits: any[] = [];
+  public benefits = signal<any>([]);
 
   getAllInfo() {
     this.geoRailwayServ.getHomeInfos().subscribe((data: any) => {
-      this.benefits = data.data.benefits;
-      this.cdr.detectChanges();
+      this.benefits.set(data.data.benefits);
     });
   }
 }
