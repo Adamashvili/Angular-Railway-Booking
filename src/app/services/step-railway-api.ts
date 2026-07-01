@@ -14,5 +14,17 @@ export class StepRailwayApi {
   getDepartures(from: string, to:string, date: any) {
     return this.http.get(`https://railway.stepprojects.ge/api/getdeparture?from=${from}&to=${to}&date=${date}`)
   }
+
+  registerTickects(info: any) {
+    return this.http.post("https://railway.stepprojects.ge/api/tickets/register", info, {responseType: "text"})
+  }
+
+  allTickects() {
+    return this.http.get("https://railway.stepprojects.ge/api/tickets")
+  }
+
+  refundTicket(id:string) {
+    return this.http.delete(`https://railway.stepprojects.ge/api/tickets/cancel/${id}`, {responseType: "text"})
+  }
   
 }

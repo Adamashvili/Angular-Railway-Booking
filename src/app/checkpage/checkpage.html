@@ -1,0 +1,125 @@
+<header></header>
+<section class="searchArea">
+  <div style="margin: 20px 0" class="headLine">
+    <h2>Find Your Tickets</h2>
+  </div>
+  <div class="field">
+    <input
+      type="text"
+      [(ngModel)]="customerEmail"
+      placeholder="Enter Your Email"
+    />
+    <button (click)="searchTickects()">SEARCH</button>
+  </div>
+
+  <div class="ticketLists">
+    @for (item of customerTicketsList(); track $index) {
+      <div class="tList">
+        <div class="part">
+          <h3>Date</h3>
+          <p>{{ item.date }}</p>
+        </div>
+        <div class="part">
+          <h3>Email</h3>
+          <p>{{ item.email }}</p>
+        </div>
+        <div class="part">
+          <h3>Phone</h3>
+          <p>{{ item.phone }}</p>
+        </div>
+        <button
+          (click)="
+            currentInvoice = item; invoiceArea.classList.add('invoiceAreaShow')
+          "
+        >
+          View Invoice
+        </button>
+      </div>
+    }
+  </div>
+</section>
+
+<div class="invoiceArea" #invoiceArea>
+  <h2 #refundSmsh2>{{ refundSms() }}</h2>
+  <button (click)="refund()">Refund Ticket</button>
+  <div class="invoice">
+    <h1 class="RB">RB</h1>
+    <button (click)="invoiceArea.classList.remove('invoiceAreaShow')">X</button>
+    <h2>Railway Booking</h2>
+
+    <div class="id-ticket">
+      <p>
+        Ticket ID: <strong> {{ currentInvoice?.id }} </strong>
+      </p>
+      <p>
+        Invoice Date: <strong> {{ currentDate | date }} </strong>
+      </p>
+    </div>
+
+    <div class="list train">
+      <div class="field">
+        <span class="num">Departure</span>
+        <span>
+          {{ currentInvoice?.train.from }} -
+          {{ currentInvoice?.train.departure }}
+        </span>
+      </div>
+      <div class="field">
+        <span>Arrive</span>
+        <span
+          >{{ currentInvoice?.train.to }} -
+          {{ currentInvoice?.train.arrive }}</span
+        >
+      </div>
+      <div class="field">
+        <span>Date</span>
+        <span>{{ currentInvoice?.date }}</span>
+      </div>
+    </div>
+
+    <h4>Customer Info</h4>
+    <div class="list user">
+      <div class="field">
+        <p><strong>Email:</strong> {{ currentInvoice?.email }}</p>
+      </div>
+      <div class="field">
+        <p><strong>Phone:</strong> {{ currentInvoice?.phone }}</p>
+      </div>
+    </div>
+
+    <h4>Passengers</h4>
+    <div class="passengerList">
+      @for (item of currentInvoice?.persons; track $index) {
+        <div class="list passengers">
+          <div class="field">
+            <p><strong>Name:</strong> {{ item.name }}</p>
+          </div>
+          <div class="field">
+            <p><strong>Surname:</strong> {{ item.surname }}</p>
+          </div>
+          <div class="field">
+            <p><strong>ID:</strong>{{ item.idNumber }}</p>
+          </div>
+          <div class="field">
+            <p><strong>Seat N-</strong> {{ item.seat.number }}</p>
+          </div>
+        </div>
+      }
+    </div>
+    <div class="totalPay">
+      <h4>Total</h4>
+      <h4>{{ currentInvoice?.ticketPrice | currency }}</h4>
+    </div>
+
+    <footer>
+      <p>
+        This invoice is generated electronically and is valid without a
+        signature or stamp.
+      </p>
+      <p style="color: red">
+        Please download your ticket or save the ticket number to present it at
+        the venue.
+      </p>
+    </footer>
+  </div>
+</div>

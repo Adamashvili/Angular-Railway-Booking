@@ -29,7 +29,7 @@
       />
     </div>
 
-    <div style="margin-bottom: 30px;" class="headLine">
+    <div style="margin-bottom: 30px" class="headLine">
       <h2>Passenger Information</h2>
     </div>
 
@@ -56,7 +56,10 @@
           [formControl]="passengerID"
           placeholder="ID Number"
         />
-        <button (click)="isPopupShown = true">Select <br> Seat</button>
+        <button (click)="isPopupShown = true">
+          Select <br />
+          Seat
+        </button>
 
         @if (!peopleSeats[$index]) {
           <button (click)="addSeat()">Submit</button>
@@ -135,3 +138,12 @@
     </div>
   </div>
 }
+
+<div class="registerSmsArea" #registerSmsArea>
+  <div class="popup">
+    <h1>{{ registerSMS() }}</h1>
+    <button (click)="registerSmsArea.classList.remove('registerSmsAreaShow')">
+      Close
+    </button>
+  </div>
+</div>

@@ -1,0 +1,205 @@
+header {
+  height: 200px;
+  background-image: url("https://4kwallpapers.com/images/wallpapers/railway-track-trees-golden-hour-dusk-curve-outdoor-5k-3840x1080-6140.jpg");
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  position: relative;
+}
+
+header::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  background-color: darkred;
+  opacity: 0.2;
+}
+
+.searchArea {
+  padding: 20px;
+}
+
+.field {
+  display: flex;
+  gap: 5px;
+  height: 40px;
+}
+
+.field input {
+  width: 300px;
+  outline: none;
+  border: 0.5px solid darkred;
+  padding-inline: 15px;
+}
+
+.field button {
+  width: 150px;
+}
+
+.tList {
+  background-color: #f7f7f7;
+  text-shadow: 0 0 1px darkred;
+  cursor: default;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 50%;
+  padding: 15px;
+  border: 0.4px solid grey;
+}
+
+.tList .part {
+  padding-bottom: 10px;
+  border-bottom: 0.3px solid grey;
+}
+
+.tList button {
+  width: 100%;
+  height: 35px;
+}
+
+.invoiceArea {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.841);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 111111111;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.2s ease-in;
+}
+
+.invoiceAreaShow {
+  opacity: 1;
+  visibility: visible;
+}
+
+.invoiceArea > h2 {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translate(-50%);
+  background-color: darkgreen;
+  font-size: 15px;
+  padding: 10px;
+  transition: 0.2s;
+  z-index: 111;
+}
+
+.refundShow {
+  top: 0px !important;
+}
+
+.invoiceArea > button {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 200px;
+  height: 35px;
+  border-radius: 0 !important;
+}
+
+.invoiceArea .invoice {
+  width: 45%;
+  height: 90vh;
+  background-color: white;
+  border: 0.5px solid red;
+  padding: 30px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  justify-content: space-evenly;
+}
+.RB {
+  color: #ed1a25;
+  font-size: 70px;
+  font-family: "Londrina Outline", sans-serif;
+  position: absolute;
+  right: 30px;
+  top: 10px;
+}
+
+.invoice button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30px;
+  border-radius: 0 0 0 5px;
+}
+
+.id-ticket {
+  display: flex;
+  justify-content: space-between;
+}
+
+.list {
+  min-height: 60px;
+  box-shadow: 0 0 5px rgb(230, 230, 230);
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  background-color: #f7f7f7;
+
+  cursor: default;
+}
+
+.list .field {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: space-evenly;
+  height: 100%;
+  padding-inline: 5px;
+  border-right: 0.4px dashed rgb(185, 184, 184);
+}
+
+.train {
+  font-size: 13px;
+}
+
+.user {
+  grid-template-columns: repeat(2, 1fr);
+  min-height: 40px !important;
+}
+
+.passengers {
+  grid-template-columns: repeat(4, 1fr);
+  min-height: 30px;
+  font-size: 11px;
+}
+
+.passengers .field {
+  text-align: start !important;
+  padding-left: 15px;
+}
+
+.totalPay {
+  width: 30%;
+  display: flex;
+  justify-content: space-between;
+  margin-left: auto;
+  border-top: 0.5px solid grey;
+  padding-top: 10px;
+  padding-inline: 5px;
+}
+
+footer {
+  text-align: center;
+  font-size: 13px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  font-style: italic;
+}

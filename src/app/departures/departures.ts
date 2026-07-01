@@ -20,7 +20,7 @@ export class Departures {
     this.actR.queryParams.subscribe( (data:any) => 
     this.service.getDepartures(data.from, data.to, data.date).subscribe( {
       next: (departureList:any) => {
-        console.log(departureList);
+        
         this.departureTrains.set(departureList[0].trains)
         this.departureInfo.set(departureList[0])
         console.log(this.departureTrains());
