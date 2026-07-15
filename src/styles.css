@@ -4,12 +4,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Londrina+Outline&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Amaranth:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica:ital@0;1&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Slabo+27px&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Gentium+Plus:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Grenze:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Georgian:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap');
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Amaranth", sans-serif;
+    font-family: "Noto Serif Georgian", serif;
+}
+
+body {
+  min-height: 100dvh !important;
+  
 }
 
 .container {
@@ -42,12 +53,9 @@
 
 
 button {
-  width: 150px;
   background-color: #ed1a25;
   border: none;
   color: white;
-  font-family: "Magra", sans-serif;
-  font-size: 14px;
   border-radius: 5px;
   cursor: pointer;
   transition: 0.3s;

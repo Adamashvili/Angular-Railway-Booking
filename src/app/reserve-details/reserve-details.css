@@ -43,6 +43,7 @@ section {
   background-color: #f7f7f7;
   text-shadow: 0 0 1.5px darkred;
   cursor: default;
+  
 }
 
 .list .field {
@@ -53,6 +54,7 @@ section {
   height: 100%;
   border-right: 0.4px dashed rgb(185, 184, 184);
   position: relative;
+  
 }
 
 .field .num {
@@ -72,6 +74,7 @@ section {
   justify-content: space-between;
   gap: 15px;
   margin: 20px 0;
+  
 }
 
 .contactField input {
@@ -89,6 +92,11 @@ section {
   align-items: stretch;
   margin: 10px 0;
   gap: 2px;
+  
+}
+
+.headLine h2 {
+  font-size: 14px;
 }
 
 .passfield h3 {
@@ -114,8 +122,8 @@ section {
   background-color: #ed1a25;
   border: none;
   color: white;
-  font-family: "Magra", sans-serif;
-  font-size: 14px;
+  
+  font-size: 12px;
   border-radius: 5px;
   cursor: pointer;
   transition: 0.3s;
@@ -157,11 +165,9 @@ aside p {
 
 aside button {
   font-weight: bold;
-  
+
   height: 60px;
 }
-
-
 
 .vagonSection {
   position: fixed;
@@ -196,9 +202,10 @@ aside button {
   top: 0;
   right: 0;
   border: none;
-  padding: 5px 17px;
+  width: 30px;
+  height: 25px;
   cursor: pointer;
-  border-bottom-left-radius: 8px;
+  border-radius: 0 0 0 4px;
 }
 
 .vagonCard .images {
@@ -234,18 +241,23 @@ aside button {
   cursor: pointer;
   letter-spacing: 1px;
   transition: 0.3s;
+  background-color: rgb(205, 202, 202);
+  color: black;
+  font-family: "Google Sans Flex", sans-serif;
+  font-size: 13px;
 }
 
-.seats button:hover {
-  background-color: lightgreen;
+.seats button:disabled {
+  background-color: red;
 }
 
-.occupiedSeat {
+
+
+.seats button:hover, .occupiedSeat {
   background-color: green !important;
-  color: white;
-  box-shadow: 0 0 5px rgb(88, 169, 88);
+  color: white !important;
+  box-shadow: 0 0 10px black inset;
 }
-
 
 .registerSmsArea {
   position: fixed;
@@ -260,7 +272,6 @@ aside button {
   transition: 0.2s ease-in-out;
   opacity: 0;
   visibility: hidden;
-  
 }
 
 .registerSmsArea .popup {
@@ -278,25 +289,19 @@ aside button {
   border: 1.5px solid #ed1a25;
 }
 
-
 .registerSmsArea .popup button {
   font-weight: bold;
-  
+
   height: 40px;
   width: 150px;
-  
 }
 
-
-
-.registerSmsAreaShow{
+.registerSmsAreaShow {
   opacity: 1;
   visibility: visible;
 }
 
-
-
-@media (max-width: 1100px) {
+@media (max-width: 1200px) {
   main {
     position: relative;
     margin: 20px;
@@ -319,6 +324,7 @@ aside button {
 
   .passfield button {
     font-size: 12px !important;
+    width: auto;
   }
 
   section .list {
@@ -338,7 +344,6 @@ aside button {
     width: 250px;
   }
 }
-
 
 @media (max-width: 670px) {
   main {

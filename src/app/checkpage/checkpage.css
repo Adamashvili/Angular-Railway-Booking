@@ -40,6 +40,11 @@ header::after {
   width: 150px;
 }
 
+.field button:disabled {
+  box-shadow: inset 0 0 20px black;
+  cursor: not-allowed;
+}
+
 .tList {
   background-color: #f7f7f7;
   text-shadow: 0 0 1px darkred;
@@ -48,9 +53,10 @@ header::after {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  width: 50%;
+  width: 40%;
   padding: 15px;
   border: 0.4px solid grey;
+  font-size: 12px !important;
 }
 
 .tList .part {
@@ -77,6 +83,7 @@ header::after {
   opacity: 0;
   visibility: hidden;
   transition: 0.2s ease-in;
+  font-size: 14px;
 }
 
 .invoiceAreaShow {
@@ -181,8 +188,19 @@ header::after {
 }
 
 .passengers .field {
-  text-align: start !important;
-  padding-left: 15px;
+  padding:0 12px ;
+  display: flex ;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.passengers .field p {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  
 }
 
 .totalPay {

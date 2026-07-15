@@ -16,7 +16,7 @@ export class Checkpage {
   @ViewChild('refundSmsh2') protected refundSmsh2!: ElementRef;
 
   customerEmail: string = '';
-  customerTicketsList = signal<any[]>([]);
+  customerTicketsList = signal<any[] | undefined>(undefined);
   currentInvoice: any;
   currentDate: Date = new Date();
   refundSms = signal<string>('');
@@ -27,7 +27,7 @@ export class Checkpage {
         let customerTickets = data.filter(
           (item: any) => item.email == this.customerEmail,
         );
-        this.customerTicketsList.set(customerTickets);
+        this.customerTicketsList.set(customerTickets); 
       },
       error: () => {},
     });

@@ -18,53 +18,53 @@
     </div>
 
     <div class="headLine">
-      <h2>Contact Information</h2>
+      <h2>საკონტაქტო ინფორმაცია</h2>
     </div>
     <div class="contactField">
-      <input [formControl]="ownerEmail" type="email" placeholder="Email" />
+      <input [formControl]="ownerEmail" type="email" placeholder="მეილი" />
       <input
         [formControl]="ownerPhone"
         type="text"
-        placeholder="Phone Number"
+        placeholder="ტელეფონი"
       />
     </div>
 
     <div style="margin-bottom: 30px" class="headLine">
-      <h2>Passenger Information</h2>
+      <h2>მგზავრთა ინფორმაცია</h2>
     </div>
 
     @for (item of [].constructor(passengers); track $index) {
       <div class="headLine">
-        <h2>Passenger {{ $index + 1 }}</h2>
+        <h2>{{ $index + 1 == 1 ? ($index + 1) + '-ლი' : 'მე-' + ($index + 1)  }} მგზავრი </h2>
       </div>
       <div class="passfield">
         <h3>
-          Seat <span> {{ invoiceSeatsInfo[$index]?.num }} </span>
+          ადგილი <span> {{ invoiceSeatsInfo[$index]?.num }} </span>
         </h3>
         <input
           type="text"
           [formControl]="passengerFirstName"
-          placeholder="First Name"
+          placeholder="სახელი"
         />
         <input
           type="text"
           [formControl]="passengerSurName"
-          placeholder="Last Name"
+          placeholder="გვარი"
         />
         <input
           type="text"
           [formControl]="passengerID"
-          placeholder="ID Number"
+          placeholder="პირადი ნომერი"
         />
         <button (click)="isPopupShown = true">
-          Select <br />
-          Seat
+          აირჩიეთ <br />
+          ადგილი
         </button>
 
         @if (!peopleSeats[$index]) {
-          <button (click)="addSeat()">Submit</button>
+          <button (click)="addSeat()">დამახსოვრება</button>
         } @else {
-          <button (click)="edit($index)">Edit</button>
+          <button (click)="edit($index)">შეცვლა</button>
         }
       </div>
     }
@@ -72,8 +72,8 @@
   <aside>
     <h2>Invoice</h2>
     <div class="field">
-      <h4>Seat</h4>
-      <h4>Price</h4>
+      <h4>ადგილი</h4>
+      <h4>ფასი</h4>
     </div>
     <hr />
     @for (item of invoiceSeatsInfo; track $index) {
@@ -84,12 +84,12 @@
     }
 
     <p>
-      Total: <span>{{ invoiceTotal || 0 }} ₾</span>
+      ჯამი: <span>{{ invoiceTotal || 0 }} ₾</span>
     </p>
 
     <button (click)="reserveTicket()">
-      Register <br />
-      Ticket
+      შეიძინეთ <br />
+      ბილეთი
     </button>
   </aside>
 </main>
@@ -118,7 +118,7 @@
           alt=""
         />
       </div>
-      <h2>Please Enter Your Vagon</h2>
+      <h2>აირჩიეთ ვაგონი</h2>
       <div class="seats">
         @if (vagon !== undefined) {
           @for (item of resDetails.vagons[vagon].seats; track $index) {
@@ -129,6 +129,7 @@
               (click)="passengerSeatId = item.seatId"
               [class.occupiedSeat]="occupiedSeat == item.number"
               (click)="occupiedSeat = item.number"
+              [disabled]="item.isOccupied"
             >
               {{ item.number }}
             </button>
@@ -143,7 +144,7 @@
   <div class="popup">
     <h1>{{ registerSMS() }}</h1>
     <button (click)="registerSmsArea.classList.remove('registerSmsAreaShow')">
-      Close
+      დახურვა
     </button>
   </div>
 </div>

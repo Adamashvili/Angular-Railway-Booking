@@ -16,12 +16,14 @@ header::after {
   position: absolute;
   left: 0;
   background-color: darkred;
-  opacity: 0.2;
+  opacity: 0.1;
 }
 
 header h1 {
   z-index: 1;
-  text-shadow: 0 0 3px red;
+  text-shadow: 0 0 2px red;
+  font-family: "Noto Serif Georgian", serif;
+  text-align: center;
 }
 
 section {
@@ -88,7 +90,9 @@ section > h2 {
 .list button {
   width: 120px;
   height: 35px;
-  
+  display: block;
+  margin: auto;
+  font-weight: bold;
 }
 
 

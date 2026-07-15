@@ -25,5 +25,5 @@
     <i class="fa-solid fa-users-line"></i>
     <input type="number" [(ngModel)]="passengers">
   </div>
-  <button (click)="filterDepartures()">Search Trains</button>
+  <button [disabled]="!cityFrom || !cityTo || !dateDeparture || !passengers" (click)="filterDepartures()">მოძებნეთ მატარებლები</button>
 </div>

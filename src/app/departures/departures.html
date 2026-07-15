@@ -1,20 +1,20 @@
 <header>
   @if (departureInfo().source) {
     <h1>
-      Choose Your Train from {{ departureInfo().source }} to
-      {{ departureInfo().destination }}
+      აირჩიეთ მატარებელი <br> {{ departureInfo().source }}დან
+      {{ departureInfo().destination }}ს მიმართულებით
     </h1>
   }
 </header>
 
 <section>
   <div style="margin: 20px 0;" class="headLine">
-    <h2>Train Lists</h2>
+    <h2>მატარებლების სია</h2>
   </div>
   <div class="listhead">
-    <h2>Train Name</h2>
-    <h2>Departure</h2>
-    <h2>Arrival</h2>
+    <h2>მარშრუტი</h2>
+    <h2>გამგზავრება</h2>
+    <h2>ჩასვლა</h2>
     <h2></h2>
   </div>
   @for (item of departureTrains(); track $index) {
@@ -31,7 +31,7 @@
         <span>{{ item.arrive }}</span>
         <span>{{ item.to }}</span>
       </div>
-      <button (click)="gotoReserve(item)">Reserve</button>
+      <button (click)="gotoReserve(item)">დაჯავშნა</button>
     </div>
   }
 </section>
